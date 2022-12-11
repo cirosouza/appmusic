@@ -59,34 +59,33 @@ public class Produtora {
 	public List<Midia> getMidias() {
 		return midias;
 	}
-	
+
 	@Override
 	public String toString() {
+
+		return String.format("%s;%s;%s;%s;%s", 
+				this.getNome(), 
+				this.getPais(), 
+				this.getAnoDeCriacao(),
+				this.getArtista().getNome(), 
+				this.getMidias().size());
+
+	}
+
+	public String construirLinha() {
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append(this.getNome());
 		sb.append(";");
-		sb.append(this.getPais());
-		sb.append(";");
-		sb.append(this.getAnoDeCriacao());
-		sb.append(";");
-		sb.append(this.getArtista());
+		sb.append(this.getArtista().getNome());
 		sb.append(";");
 		sb.append(this.getMidias().size());
-		
-		return sb.toString();
-	}
-	
-	public String construirLinha() {
-		
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append(this.toString());
 		sb.append("\r\n");
-		
+
 		return sb.toString();
 	}
-	
+
 	public void imprimir() {
 		System.out.println("Nome: " + this.getNome());
 		System.out.println("Pais: " + this.getPais());

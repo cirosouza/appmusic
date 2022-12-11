@@ -11,7 +11,7 @@ public class ClipeTest {
 	public static void main(String[] args) {
 		
 		try {
-			Clipe clipe1 = new Clipe("The Writing On The Wall", 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE");
+			Clipe clipe1 = new Clipe("The Writing On The Wall", 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE",0);
 			System.out.println(clipe1);
 			System.out.println("Custo de produção = R$" + clipe1.calcularCustoDeProducao());
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ClipeInvalidoException e) {
@@ -19,7 +19,7 @@ public class ClipeTest {
 		}
 		
 		try {
-			Clipe clipe2 = new Clipe(null, 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE");
+			Clipe clipe2 = new Clipe(null, 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE",0);
 			System.out.println(clipe2);
 			System.out.println("Custo de produção = R$" + clipe2.calcularCustoDeProducao());
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ClipeInvalidoException e) {
@@ -27,7 +27,7 @@ public class ClipeTest {
 		}
 		
 		try {
-			Clipe clipe3 = new Clipe("The Writing On The Wall", -1, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE");
+			Clipe clipe3 = new Clipe("The Writing On The Wall", -1, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE",0);
 			System.out.println(clipe3);
 			System.out.println("Custo de produção = R$" + clipe3.calcularCustoDeProducao());
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ClipeInvalidoException e) {

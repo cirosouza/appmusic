@@ -29,14 +29,14 @@ public class ProdutoraTest {
 		Midia show1 = null;
 		
 		try {
-			artista1 = new Artista("Iron Maiden", 1975, "banda");
+			artista1 = new Artista("Iron Maiden", 1975, "banda", true);
 			
 		} catch (ArtistaInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-			clipe1 = new Clipe("The Writing On The Wall", 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE");
+			clipe1 = new Clipe("The Writing On The Wall", 8, 2021,"Nicos Livesey", "https://www.youtube.com/watch?v=FhBnW7bZHEE",0);
 			midias1.add(clipe1);
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException
 				| ClipeInvalidoException e) {
@@ -44,14 +44,14 @@ public class ProdutoraTest {
 		}
 		
 		try {
-			album1 = new Album ("Powerslave", 51, 1984, 8, "LP");
+			album1 = new Album ("Powerslave", 51, 1984, 8, "LP",7);
 			midias1.add(album1);
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | AlbumInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-			show1 = new ShowGravado("Iron Maiden Rock in Rio", 120, 2002, "Rio de Janeiro", 19);
+			show1 = new ShowGravado("Iron Maiden Rock in Rio", 120, 2002, "Rio de Janeiro", 19, "Kevin Shirley");
 			midias1.add(show1);
 		} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ShowGravadoInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
@@ -63,6 +63,7 @@ public class ProdutoraTest {
 			produtora.setPais("Inglaterra");
 			produtora.setAnoDeCriacao(1931);
 			produtora.imprimir();
+			System.out.println(produtora.toString());
 		} catch (ProdutoraSemArtistaException | ProdutoraSemMidiaException | NumberFormatException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
@@ -73,6 +74,7 @@ public class ProdutoraTest {
 			produtora.setPais("Inglaterra");
 			produtora.setAnoDeCriacao(1931);
 			produtora.imprimir();
+			System.out.println(produtora.toString());
 		} catch (ProdutoraSemArtistaException | ProdutoraSemMidiaException | NumberFormatException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}

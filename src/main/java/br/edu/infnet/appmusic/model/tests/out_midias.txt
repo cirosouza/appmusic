@@ -1,5 +1,1 @@
-EMI;Inglaterra;1931;Iron Maiden:1975;Banda;0
-Iron Maiden:1975;Banda
-The Writing On The Wall;8.0;2021;Nicos Livesey;https://www.youtube.com/watch?v=FhBnW7bZHEE
-Iron Maiden Rock in Rio;120.0;2002;Rio de Janeiro;2002
-Powerslave;51.0;1984;LP;8
+EMI;Iron Maiden;3

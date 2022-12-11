@@ -1,5 +1,6 @@
 package br.edu.infnet.appmusic.model.domain;
 
+import br.edu.infnet.appmusic.model.auxiliar.Constants;
 import br.edu.infnet.appmusic.model.exceptions.AlbumInvalidoException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaAnoVazioException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaDuracaoInvalidaException;
@@ -9,10 +10,11 @@ public class Album extends Midia {
 
 	private int numeroDeMusicas;
 	private String tipo;
+	private int tempoConteudoBonus;
 
-	public Album(String nome, float duracao, int anoDeGravacao, int numeroDeMusicas, String tipo)
-			throws MidiaNomeVazioException, MidiaDuracaoInvalidaException, MidiaAnoVazioException,
-			AlbumInvalidoException {
+	public Album(String nome, float duracao, int anoDeGravacao, int numeroDeMusicas, String tipo,
+			int tempoConteudoBonus) throws MidiaNomeVazioException, MidiaDuracaoInvalidaException,
+			MidiaAnoVazioException, AlbumInvalidoException {
 		super(nome, duracao, anoDeGravacao);
 
 		if (numeroDeMusicas == 0) {
@@ -29,6 +31,7 @@ public class Album extends Midia {
 
 		this.setNumeroDeMusicas(numeroDeMusicas);
 		this.setTipo(tipo);
+		this.setTempoConteudoBonus(tempoConteudoBonus);
 	}
 
 	public int getNumeroDeMusicas() {
@@ -47,9 +50,17 @@ public class Album extends Midia {
 		this.tipo = tipo;
 	}
 
+	public int getTempoConteudoBonus() {
+		return tempoConteudoBonus;
+	}
+
+	public void setTempoConteudoBonus(int tempoConteudoBonus) {
+		this.tempoConteudoBonus = tempoConteudoBonus;
+	}
+
 	@Override
 	public float calcularCustoDeProducao() {
-		return this.getNumeroDeMusicas() * 10000;
+		return this.getNumeroDeMusicas() * Constants.PRECO_GRAVACAO_MUSICA + this.getDuracao() > 50 ? 10000 : 0;
 	}
 
 	@Override
@@ -60,6 +71,8 @@ public class Album extends Midia {
 		sb.append(this.getTipo());
 		sb.append(";");
 		sb.append(this.getNumeroDeMusicas());
+		sb.append(";");
+		sb.append(this.getTempoConteudoBonus());
 
 		return sb.toString();
 	}

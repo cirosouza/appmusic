@@ -25,6 +25,8 @@ import br.edu.infnet.appmusic.model.exceptions.ProdutoraSemArtistaException;
 import br.edu.infnet.appmusic.model.exceptions.ProdutoraSemMidiaException;
 import br.edu.infnet.appmusic.model.exceptions.ShowGravadoInvalidoException;
 
+import br.edu.infnet.appmusic.model.auxiliar.Constants;
+
 public class ArquivoTest {
 
 	public static void main(String[] args) {
@@ -34,11 +36,11 @@ public class ArquivoTest {
 
 		try {
 			FileReader fileR = new FileReader(
-					currentPath + "\\src\\main\\java\\br\\edu\\infnet\\appmusic\\model\\tests\\midias.txt");
+					currentPath + Constants.MIDIA_FILE_PATH + "midias.txt");
 			BufferedReader reader = new BufferedReader(fileR);
 
 			FileWriter fileW = new FileWriter(
-					currentPath + "\\src\\main\\java\\br\\edu\\infnet\\appmusic\\model\\tests\\out_midias.txt");
+					currentPath + Constants.MIDIA_FILE_PATH + "out_midias.txt");
 			BufferedWriter writer = new BufferedWriter(fileW);
 
 			String line = reader.readLine();
@@ -49,69 +51,65 @@ public class ArquivoTest {
 
 			while (line != null) {
 
-				System.out.println(line);
-
 				fields = line.split(";");
 
 				switch (fields[0].toUpperCase()) {
 
 				case "P":
 					try {
-						produtora = new Produtora(new Artista(fields[4], Integer.parseInt(fields[5]), fields[6]),
-								midias);
+						Boolean artistaAtivo = fields[7] == "Ativo" ? true : false;
+
+						produtora = new Produtora(
+								new Artista(fields[4], Integer.parseInt(fields[5]), fields[6], artistaAtivo), midias);
 						produtora.setNome(fields[1]);
 						produtora.setPais(fields[2]);
 						produtora.setAnoDeCriacao(Integer.parseInt(fields[3]));
-						writer.write(produtora.construirLinha());
 					} catch (ProdutoraSemArtistaException | ProdutoraSemMidiaException | NumberFormatException
-							| ArtistaInvalidoException | IOException e) {
+							| ArtistaInvalidoException e) {
 						System.out.println("[ERRO] " + e.getMessage());
 					}
 					break;
-					
-				case "A":
-					try {
-						Artista artista = new Artista(fields[1], Integer.parseInt(fields[2]), fields[3]);
-						writer.write(artista.construirLinha());
-					} catch (ArtistaInvalidoException | IOException e) {
-						System.out.println("[ERRO] " + e.getMessage());
-					}
-					break;
-				
+
 				case "C":
 					try {
-						Clipe clipe = new Clipe(fields[1],Integer.parseInt(fields[2]),Integer.parseInt(fields[3]),fields[4],fields[5]);
-						writer.write(clipe.construirLinha());
-					} catch(MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ClipeInvalidoException | IOException e) {
+						Clipe clipe = new Clipe(fields[1], Integer.parseInt(fields[2]), Integer.parseInt(fields[3]),
+								fields[4], fields[5], Integer.parseInt(fields[6]));
+						midias.add(clipe);
+					} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException
+							| ClipeInvalidoException e) {
 						System.out.println("[ERRO] " + e.getMessage());
 					}
 					break;
 				case "S":
 					try {
-						ShowGravado show = new ShowGravado(fields[1], Integer.parseInt(fields[2]), Integer.parseInt(fields[3]),fields[4],Integer.parseInt(fields[3]));
-						writer.write(show.construirLinha());
-					} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException | ShowGravadoInvalidoException | IOException e) {
+						ShowGravado show = new ShowGravado(fields[1], Integer.parseInt(fields[2]),
+								Integer.parseInt(fields[3]), fields[4], Integer.parseInt(fields[5]), fields[6]);
+						midias.add(show);
+					} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException
+							| ShowGravadoInvalidoException e) {
 						System.out.println("[ERRO] " + e.getMessage());
 					}
 					break;
 				case "L":
 					try {
-						Album album = new Album(fields[1], Float.parseFloat(fields[2]), Integer.parseInt(fields[3]), Integer.parseInt(fields[4]), fields[5]);
-						writer.write(album.construirLinha());
-					} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException |
-							AlbumInvalidoException | IOException e) {
+						Album album = new Album(fields[1], Float.parseFloat(fields[2]), Integer.parseInt(fields[3]),
+								Integer.parseInt(fields[4]), fields[5], Integer.parseInt(fields[3]));
+						midias.add(album);
+					} catch (MidiaNomeVazioException | MidiaDuracaoInvalidaException | MidiaAnoVazioException
+							| AlbumInvalidoException e) {
 						System.out.println("[ERRO] " + e.getMessage());
 					}
 				}
-				
+
 				line = reader.readLine();
 			}
 
-			//writer.write(produtora.construirLinha());
+			writer.write(produtora.construirLinha());
 
-			writer.close();
 			reader.close();
 			fileR.close();
+			writer.close();
+			fileW.close();
 
 		} catch (IOException e) {
 			System.out.println("[ERRO] " + e.getMessage());
