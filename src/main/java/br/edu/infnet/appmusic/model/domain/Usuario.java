@@ -1,20 +1,22 @@
 package br.edu.infnet.appmusic.model.domain;
 
 public class Usuario {
-	String nome;
-	String email;
-	String senha;
-	
+
+	private Integer id;
+	private String nome;
+	private String email;
+	private String senha;
+
 	public Usuario() {
-		
+
 	}
-	
-	public Usuario(String nome, String email) {
+
+	public Usuario(String email, String senha) {
 		this();
-		this.nome = nome;
 		this.email = email;
+		this.senha = senha;
 	}
-	
+
 	public Usuario(String nome, String email, String senha) {
 		this(email, senha);
 		this.setNome(nome);
@@ -43,14 +45,19 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		
-	return String.format(
-		"O usuario tem o nome %s e as credenciais %s e %s.",
-		nome, email, senha
-		);
+
+		return String.format("O usuario tem o nome %s e as credenciais %s e %s.", nome, email, senha);
 	}
-	
+
 }
