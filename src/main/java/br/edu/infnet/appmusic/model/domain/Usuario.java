@@ -20,6 +20,7 @@ public class Usuario {
 	public Usuario(String nome, String email, String senha) {
 		this(email, senha);
 		this.setNome(nome);
+
 	}
 
 	public String getNome() {
