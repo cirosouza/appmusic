@@ -4,6 +4,7 @@ import br.edu.infnet.appmusic.model.exceptions.ArtistaInvalidoException;
 
 public class Artista {
 
+    private Integer id;
 	private String nome;
 	private int anoDeOrigem;
 	private String tipo;
@@ -40,9 +41,21 @@ public class Artista {
 		return tipo;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
+	public String isAtivo() {
+		if(this.ativo) {
+			return "Sim";
+		}
+		return "Não";
+
 	}
+	
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 	@Override
 	public String toString() {

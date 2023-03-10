@@ -8,6 +8,7 @@ import br.edu.infnet.appmusic.model.exceptions.ShowGravadoInvalidoException;
 
 public class ShowGravado extends Midia {
 
+    private Integer id;
 	private String localDeGravacao;
 	private int numeroDeMusicasPerformadas;
 	private String producao;
@@ -62,6 +63,14 @@ public class ShowGravado extends Midia {
 	public float calcularCustoDeProducao() {
 		return this.getNumeroDeMusicasPerformadas() * Constants.PRECO_FILMAGEM_MUSICA + this.getDuracao() * 1000;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
@@ -85,5 +94,7 @@ public class ShowGravado extends Midia {
 
 		return sb.toString();
 	}
+
+
 
 }

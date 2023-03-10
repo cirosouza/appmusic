@@ -8,6 +8,7 @@ import br.edu.infnet.appmusic.model.exceptions.MidiaNomeVazioException;
 
 public class Clipe extends Midia {
 
+    private Integer id;
 	private String diretor;
 	private String linkVideo;
 	private int numeroDeAtoresFigurantes;
@@ -62,6 +63,14 @@ public class Clipe extends Midia {
 	public void setNumeroDeAtoresFigurantes(int numeroDeAtoresFigurantes) {
 		this.numeroDeAtoresFigurantes = numeroDeAtoresFigurantes;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
@@ -85,5 +94,7 @@ public class Clipe extends Midia {
 
 		return sb.toString();
 	}
+
+
 
 }

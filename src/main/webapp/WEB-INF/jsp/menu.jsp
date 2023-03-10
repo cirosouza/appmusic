@@ -10,11 +10,11 @@
 			<li class="active"><a href="#">Home</a></li>
 			<c:if test="${not empty usuario}">
 				<li><a href="/usuario/lista">Usuario</a></li>
-				<li><a href="/artista">Artista</a></li>
+				<li><a href="/artista/lista">Artista</a></li>
 				<li><a href="#">Mídia</a></li>
-				<li><a href="#">Album</a></li>
-				<li><a href="#">Clipe</a></li>
-				<li><a href="#">ShowGravado</a></li>
+				<li><a href="/album/lista">Album</a></li>
+				<li><a href="/clipe/lista">Clipe</a></li>
+				<li><a href="/show/lista">Show Gravado</a></li>
 				<li><a href="#">Produtora</a></li>
 			</c:if>
 		</ul>

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.edu.infnet.appmusic.AppmusicApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.012 s - in br.edu.infnet.appmusic.AppmusicApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.941 s - in br.edu.infnet.appmusic.AppmusicApplicationTests

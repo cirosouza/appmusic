@@ -8,6 +8,7 @@ import br.edu.infnet.appmusic.model.exceptions.MidiaNomeVazioException;
 
 public class Album extends Midia {
 
+    private Integer id;
 	private int numeroDeMusicas;
 	private String tipo;
 	private int tempoConteudoBonus;
@@ -57,6 +58,14 @@ public class Album extends Midia {
 	public void setTempoConteudoBonus(int tempoConteudoBonus) {
 		this.tempoConteudoBonus = tempoConteudoBonus;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Override
 	public float calcularCustoDeProducao() {
@@ -86,4 +95,6 @@ public class Album extends Midia {
 
 		return sb.toString();
 	}
+
+
 }
