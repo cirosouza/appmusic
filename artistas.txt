@@ -1,0 +1,3 @@
+Iron Maiden;1975;Banda;true
+Slayer;1981;Banda;false
+Stevie Ray Vaughan;1970;Artista Solo;false

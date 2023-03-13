@@ -1,0 +1,3 @@
+Powerslave;51;1984;8;LP;3
+God Hates Us All;42;2001;15;LP;7
+Texas Flood;38;1983;10;LP;19

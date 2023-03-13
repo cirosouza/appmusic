@@ -1,5 +1,6 @@
 package br.edu.infnet.appmusic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appmusic.model.domain.ShowGravado;
-import br.edu.infnet.appmusic.model.repository.ShowGravadoRepository;
+import br.edu.infnet.appmusic.model.service.ShowGravadoService;
 
 @Controller
 public class ShowGravadoController {
+	
+	@Autowired
+	private ShowGravadoService showGravadoService;
+	
 	private String msg;
 
 	@GetMapping(value = "/show/cadastro")
@@ -22,7 +27,7 @@ public class ShowGravadoController {
 	@GetMapping(value = "/show/lista")
 	public String telaLista(Model model) {
 
-		model.addAttribute("shows", ShowGravadoRepository.obterLista());
+		model.addAttribute("shows", showGravadoService.obterLista());
 
 		model.addAttribute("mensagem", msg);
 
@@ -34,7 +39,7 @@ public class ShowGravadoController {
 	@PostMapping(value = "/show/incluir")
 	public String incluir(ShowGravado show) {
 
-		ShowGravadoRepository.incluir(show);
+		showGravadoService.incluir(show);
 
 		msg = "A inclusão do usuário " + show.getNome() + " foi realizada com sucesso!";
 		
@@ -44,7 +49,7 @@ public class ShowGravadoController {
 	@GetMapping(value="/show/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		ShowGravado show = ShowGravadoRepository.excluir(id);
+		ShowGravado show = showGravadoService.excluir(id);
 
 		msg = "A exclusão do usuário " + show.getNome() + " foi realizada com sucesso!";
 

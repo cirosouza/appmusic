@@ -4,14 +4,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmusic.model.domain.Clipe;
 
+@Repository
 public class ClipeRepository {
 	private static Integer id = 1;
 
 	private static Map<Integer, Clipe> mapaClipe = new HashMap<Integer, Clipe>();
 
-	public static boolean incluir(Clipe clipe) {
+	public boolean incluir(Clipe clipe) {
 
 		clipe.setId(id++);
 
@@ -23,12 +26,12 @@ public class ClipeRepository {
 		}
 	}
 
-	public static Clipe excluir(Integer key) {
+	public Clipe excluir(Integer key) {
 
 		return mapaClipe.remove(key);
 	}
 
-	public static Collection<Clipe> obterLista() {
+	public Collection<Clipe> obterLista() {
 		return mapaClipe.values();
 	}
 }

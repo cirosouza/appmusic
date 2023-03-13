@@ -4,14 +4,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmusic.model.domain.Album;
 
+@Repository
 public class AlbumRepository {
 	private static Integer id = 1;
 
 	private static Map<Integer, Album> mapaAlbum = new HashMap<Integer, Album>();
 
-	public static boolean incluir(Album album) {
+	public boolean incluir(Album album) {
 
 		album.setId(id++);
 
@@ -23,12 +26,12 @@ public class AlbumRepository {
 		}
 	}
 
-	public static Album excluir(Integer key) {
+	public Album excluir(Integer key) {
 
 		return mapaAlbum.remove(key);
 	}
 
-	public static Collection<Album> obterLista() {
+	public Collection<Album> obterLista() {
 		return mapaAlbum.values();
 	}
 }

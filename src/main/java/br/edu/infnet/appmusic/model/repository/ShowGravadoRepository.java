@@ -4,14 +4,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmusic.model.domain.ShowGravado;
 
+@Repository
 public class ShowGravadoRepository {
 	private static Integer id = 1;
 
 	private static Map<Integer, ShowGravado> mapaShow = new HashMap<Integer, ShowGravado>();
 
-	public static boolean incluir(ShowGravado show) {
+	public boolean incluir(ShowGravado show) {
 
 		show.setId(id++);
 
@@ -23,12 +26,12 @@ public class ShowGravadoRepository {
 		}
 	}
 
-	public static ShowGravado excluir(Integer key) {
+	public ShowGravado excluir(Integer key) {
 
 		return mapaShow.remove(key);
 	}
 
-	public static Collection<ShowGravado> obterLista() {
+	public Collection<ShowGravado> obterLista() {
 		return mapaShow.values();
 	}
 }

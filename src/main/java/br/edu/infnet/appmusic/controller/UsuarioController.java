@@ -1,5 +1,6 @@
 package br.edu.infnet.appmusic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appmusic.model.domain.Usuario;
-import br.edu.infnet.appmusic.model.repository.UsuarioRepository;
+import br.edu.infnet.appmusic.model.service.UsuarioService;
 
 @Controller
 public class UsuarioController {
+	
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	private String msg;
 
@@ -23,7 +27,7 @@ public class UsuarioController {
 	@GetMapping(value = "/usuario/lista")
 	public String telaLista(Model model) {
 
-		model.addAttribute("usuarios", UsuarioRepository.obterLista());
+		model.addAttribute("usuarios", usuarioService.obterLista());
 		
 		model.addAttribute("mensagem", msg);
 		
@@ -36,7 +40,7 @@ public class UsuarioController {
 	public String incluir(Usuario usuario) {
 		System.out.println("Inclusao realizada com sucesso!!!" + usuario);
 
-		UsuarioRepository.incluir(usuario);
+		usuarioService.incluir(usuario);
 		
 		msg = "A inclusão do usuário " + usuario.getNome() + " foi realizada com sucesso!";
 
@@ -46,7 +50,7 @@ public class UsuarioController {
 	@GetMapping(value="/usuario/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		Usuario usuario = UsuarioRepository.excluir(id);
+		Usuario usuario = usuarioService.excluir(id);
 		
 		msg = "A exclusão do usuário " + usuario.getNome() + " foi realizada com sucesso!";
 		
