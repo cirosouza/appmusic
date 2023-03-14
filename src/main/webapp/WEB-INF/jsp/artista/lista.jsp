@@ -45,6 +45,8 @@
 				<th>Ano de Origem</th>
 				<th>Tipo</th>
 				<th>Ativo</th>
+				<th>Usuario</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -55,6 +57,7 @@
 					<td>${a.anoDeOrigem }</td>
 					<td>${a.tipo }</td>
 					<td>${a.isAtivo() }</td>
+					<td>${a.usuario.nome}</td>
 					<th><a href="/artista/${a.id }/excluir">excluir</a></th>
 				</tr>
 			</c:forEach>

@@ -20,11 +20,11 @@
 					value="Ciro Maia" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>Senha:</label> <input type="password" name="email"
+				<label>Senha:</label> <input type="password" name="senha"
 					value="ciro@gmail.com.br" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>E-mail:</label> <input type="email" name="senha"
+				<label>E-mail:</label> <input type="email" name="email"
 					value="ciro@gmail.com.br" class="form-control">
 			</div>
 			<button type="submit">Cadastrar</button>

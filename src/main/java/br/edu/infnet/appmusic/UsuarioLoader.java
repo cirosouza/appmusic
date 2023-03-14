@@ -21,6 +21,8 @@ public class UsuarioLoader implements ApplicationRunner{
 		
 		Usuario usuario = new Usuario("Administrador", "admin@admin.com", "senha123");	
 		
+		
+		
 		usuarioService.incluir(usuario);
 	}
 	

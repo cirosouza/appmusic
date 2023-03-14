@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appmusic.model.domain.Artista;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.ArtistaService;
 
 @Controller
@@ -25,9 +27,9 @@ public class ArtistaController {
 	}
 
 	@GetMapping(value = "/artista/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
-		model.addAttribute("artistas", artistaService.obterLista());
+		model.addAttribute("artistas", artistaService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
 
@@ -37,11 +39,12 @@ public class ArtistaController {
 	}
 
 	@PostMapping(value = "/artista/incluir")
-	public String incluir(Artista artista) {
+	public String incluir(Artista artista, @SessionAttribute("usuario") Usuario usuario) {
 
+		artista.setUsuario(usuario);
 		artistaService.incluir(artista);
 
-		msg = "A inclusão do usuário " + artista.getNome() + " foi realizada com sucesso!";
+		msg = "A inclusão do artista " + artista.getNome() + " foi realizada com sucesso!";
 
 		return "redirect:/artista/lista";
 	}
@@ -49,9 +52,9 @@ public class ArtistaController {
 	@GetMapping(value="/artista/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		Artista artista = artistaService.excluir(id);
+		artistaService.excluir(id);
 
-		msg = "A exclusão do usuário " + artista.getNome() + " foi realizada com sucesso!";
+		msg = "A exclusão do artista (" + id + ") foi realizada com sucesso!";
 
 		return "redirect:/artista/lista";
 	}

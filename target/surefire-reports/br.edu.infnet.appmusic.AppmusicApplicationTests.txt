@@ -1,9 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.edu.infnet.appmusic.AppmusicApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.018 s <<< FAILURE! - in br.edu.infnet.appmusic.AppmusicApplicationTests
-contextLoads  Time elapsed: 0.014 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: java.lang.IllegalStateException: Failed to execute ApplicationRunner
-Caused by: java.lang.NumberFormatException: For input string: "LP"
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.305 s - in br.edu.infnet.appmusic.AppmusicApplicationTests

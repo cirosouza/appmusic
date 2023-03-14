@@ -40,6 +40,7 @@
 				<th>ID</th>
 				<th>Nome</th>
 				<th>E-mail</th>
+				<th>Artistas</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -49,6 +50,7 @@
 					<td>${u.id }</td>
 					<td>${u.nome }</td>
 					<td>${u.email }</td>
+					<td>${u.artistas.size() }</td>
 					<th><a href="/usuario/${u.id }/excluir">excluir</a></th>
 				</tr>
 			</c:forEach>

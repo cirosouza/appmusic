@@ -1,37 +1,16 @@
 package br.edu.infnet.appmusic.model.repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.appmusic.model.domain.Artista;
 
 @Repository
-public class ArtistaRepository {
-	private static Integer id = 1;
+public interface ArtistaRepository extends CrudRepository<Artista, Integer>{
 
-	private static Map<Integer, Artista> mapaArtista = new HashMap<Integer, Artista>();
-
-	public boolean incluir(Artista artista) {
-
-		artista.setId(id++);
-
-		try {
-			mapaArtista.put(artista.getId(), artista);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public Artista excluir(Integer key) {
-
-		return mapaArtista.remove(key);
-	}
-
-	public Collection<Artista> obterLista() {
-		return mapaArtista.values();
-	}
+	@Query("from Artista a where a.usuario.id = :userId")
+	List<Artista> ObterLista(Integer userId);
 }

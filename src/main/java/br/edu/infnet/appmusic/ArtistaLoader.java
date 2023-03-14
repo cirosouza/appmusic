@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appmusic.model.domain.Artista;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.ArtistaService;
 
 @Order(2)
@@ -37,12 +38,17 @@ public class ArtistaLoader implements ApplicationRunner {
 
 					campos = linha.split(";");
 					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
+					
 					Artista artista = new Artista(
 							campos[0], 
 							Integer.parseInt(campos[1]), 
 							campos[2],
 							Boolean.parseBoolean(campos[3])
 							);
+					
+					artista.setUsuario(usuario);
 					
 					artistaService.incluir(artista);
 					
