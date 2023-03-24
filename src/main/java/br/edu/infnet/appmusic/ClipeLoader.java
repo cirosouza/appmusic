@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appmusic.model.domain.Clipe;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.ClipeService;
 
 @Order(4)
@@ -45,6 +46,11 @@ public class ClipeLoader implements ApplicationRunner {
 							campos[4],
 							Integer.parseInt(campos[5])
 							);
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
+							
+					clipe.setUsuario(usuario);
 					
 					clipeService.incluir(clipe);
 					

@@ -1,18 +1,25 @@
 package br.edu.infnet.appmusic.model.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.infnet.appmusic.model.auxiliar.Constants;
 import br.edu.infnet.appmusic.model.exceptions.ClipeInvalidoException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaAnoVazioException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaDuracaoInvalidaException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaNomeVazioException;
 
+@Entity
 public class Clipe extends Midia {
 
-    private Integer id;
 	private String diretor;
 	private String linkVideo;
 	private int numeroDeAtoresFigurantes;
 
+	public Clipe() {
+		super();
+	}
+
+	
 	public Clipe(String nome, float duracao, int anoDeGravacao, String diretor, String linkVideo,
 			int numeroDeAtoresFigurantes) throws MidiaNomeVazioException, MidiaDuracaoInvalidaException,
 			MidiaAnoVazioException, ClipeInvalidoException {
@@ -63,14 +70,7 @@ public class Clipe extends Midia {
 	public void setNumeroDeAtoresFigurantes(int numeroDeAtoresFigurantes) {
 		this.numeroDeAtoresFigurantes = numeroDeAtoresFigurantes;
 	}
-	
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	@Override
 	public String toString() {

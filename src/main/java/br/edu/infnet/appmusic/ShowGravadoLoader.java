@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appmusic.model.domain.ShowGravado;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.ShowGravadoService;
 
 @Order(5)
@@ -45,6 +46,11 @@ public class ShowGravadoLoader implements ApplicationRunner {
 							Integer.parseInt(campos[4]),
 							campos[5]
 							);
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
+							
+					showGravado.setUsuario(usuario);
 					
 					showGravadoService.incluir(showGravado);
 					

@@ -19,8 +19,14 @@ public class Usuario {
 	private String email;
 	private String senha;
 	@OneToMany
-	@JoinColumn(name="idUsuario")
+	@JoinColumn(name = "idUsuario")
 	private List<Artista> artistas;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Midia> midias;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Produtora> produtoras;
 
 	public Usuario() {
 
@@ -77,8 +83,22 @@ public class Usuario {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+
+	public List<Midia> getMidias() {
+		return midias;
+	}
+
+	public void setMidias(List<Midia> midias) {
+		this.midias = midias;
+	}
+
+	public List<Produtora> getProdutoras() {
+		return produtoras;
+	}
+
+	public void setProdutoras(List<Produtora> produtoras) {
+		this.produtoras = produtoras;
+	}
 
 	@Override
 	public String toString() {

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmusic.model.domain.Clipe;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.repository.ClipeRepository;
 
 @Service
@@ -14,15 +15,23 @@ public class ClipeService {
 	@Autowired
 	private ClipeRepository clipeRepository;
 
-	public boolean incluir(Clipe clipe) {
-		return clipeRepository.incluir(clipe);
+	public Clipe incluir(Clipe clipe) {
+		return clipeRepository.save(clipe);
 	}
 	
-	public Clipe excluir(Integer key) {
-		return clipeRepository.excluir(key);
+	public void excluir(Integer key) {
+		clipeRepository.deleteById(key);
 	}
 	
 	public Collection<Clipe> obterLista() {
-		return clipeRepository.obterLista();
+		return (Collection<Clipe>) clipeRepository.findAll();
+	}
+	
+	public Collection<Clipe> obterLista(Usuario usuario) {
+		return (Collection<Clipe>) clipeRepository.obterLista(usuario.getId());
+	}
+	
+	public Clipe obterPorId(Integer id) {
+		return clipeRepository.findById(id).orElse(null);
 	}
 }

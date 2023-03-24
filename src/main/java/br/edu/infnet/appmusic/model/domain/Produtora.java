@@ -2,16 +2,39 @@ package br.edu.infnet.appmusic.model.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import br.edu.infnet.appmusic.model.exceptions.ProdutoraSemArtistaException;
 import br.edu.infnet.appmusic.model.exceptions.ProdutoraSemMidiaException;
 
+@Entity
 public class Produtora {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String nome;
 	private String pais;
 	private int anoDeCriacao;
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idArtista")
 	private Artista artista;
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Midia> midias;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
+
+	public Produtora() {
+	}
 
 	public Produtora(Artista artista, List<Midia> midias)
 			throws ProdutoraSemArtistaException, ProdutoraSemMidiaException {
@@ -60,15 +83,35 @@ public class Produtora {
 		return midias;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setArtista(Artista artista) {
+		this.artista = artista;
+	}
+
+	public void setMidias(List<Midia> midias) {
+		this.midias = midias;
+	}
+
 	@Override
 	public String toString() {
 
-		return String.format("%s;%s;%s;%s;%s", 
-				this.getNome(), 
-				this.getPais(), 
-				this.getAnoDeCriacao(),
-				this.getArtista().getNome(), 
-				this.getMidias().size());
+		return String.format("%s;%s;%s;%s;%s", this.getNome(), this.getPais(), this.getAnoDeCriacao(),
+				this.getArtista().getNome(), this.getMidias().size());
 
 	}
 

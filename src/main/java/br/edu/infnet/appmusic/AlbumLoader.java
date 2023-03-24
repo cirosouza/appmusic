@@ -11,6 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appmusic.model.domain.Album;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.AlbumService;
 
 @Order(3)
@@ -38,6 +39,11 @@ public class AlbumLoader implements ApplicationRunner{
 
 					Album album = new Album(campos[0], Float.parseFloat(campos[1]), Integer.parseInt(campos[2]),
 							Integer.parseInt(campos[3]), campos[4], Integer.parseInt(campos[5]));
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
+							
+					album.setUsuario(usuario);
 
 					albumService.incluir(album);
 

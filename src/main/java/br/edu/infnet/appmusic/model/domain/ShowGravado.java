@@ -1,18 +1,24 @@
 package br.edu.infnet.appmusic.model.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.infnet.appmusic.model.auxiliar.Constants;
 import br.edu.infnet.appmusic.model.exceptions.MidiaAnoVazioException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaDuracaoInvalidaException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaNomeVazioException;
 import br.edu.infnet.appmusic.model.exceptions.ShowGravadoInvalidoException;
 
+@Entity
 public class ShowGravado extends Midia {
 
-    private Integer id;
 	private String localDeGravacao;
 	private int numeroDeMusicasPerformadas;
 	private String producao;
 
+	public ShowGravado() {
+		super();
+	}
+	
 	public ShowGravado(String nome, float duracao, int anoDeGravacao, String localDeGravacao,
 			int numeroDeMusicasPerformadas, String producao) throws MidiaNomeVazioException,
 			MidiaDuracaoInvalidaException, MidiaAnoVazioException, ShowGravadoInvalidoException {
@@ -64,14 +70,6 @@ public class ShowGravado extends Midia {
 		return this.getNumeroDeMusicasPerformadas() * Constants.PRECO_FILMAGEM_MUSICA + this.getDuracao() * 1000;
 	}
 	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

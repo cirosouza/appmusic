@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appmusic.model.domain.Album;
+import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.AlbumService;
 
 @Controller
@@ -25,9 +27,9 @@ public class AlbumController {
 	}
 
 	@GetMapping(value = "/album/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 
-		model.addAttribute("albuns", albumService.obterLista());
+		model.addAttribute("albuns", albumService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
 
@@ -37,8 +39,10 @@ public class AlbumController {
 	}
 
 	@PostMapping(value = "/album/incluir")
-	public String incluir(Album album) {
+	public String incluir(Album album, @SessionAttribute("usuario") Usuario usuario) {
 
+		album.setUsuario(usuario);
+		
 		albumService.incluir(album);
 
 		msg = "A inclusão do usuário " + album.getNome() + " foi realizada com sucesso!";
@@ -49,9 +53,9 @@ public class AlbumController {
 	@GetMapping(value="/album/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		Album album = albumService.excluir(id);
+		albumService.excluir(id);
 
-		msg = "A exclusão do usuário " + album.getNome() + " foi realizada com sucesso!";
+		msg = "A exclusão do album (" + id + ") foi realizada com sucesso!";
 
 		return "redirect:/album/lista";
 	}

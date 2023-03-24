@@ -1,37 +1,16 @@
 package br.edu.infnet.appmusic.model.repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.appmusic.model.domain.ShowGravado;
 
 @Repository
-public class ShowGravadoRepository {
-	private static Integer id = 1;
+public interface ShowGravadoRepository extends CrudRepository<ShowGravado, Integer> {
 
-	private static Map<Integer, ShowGravado> mapaShow = new HashMap<Integer, ShowGravado>();
-
-	public boolean incluir(ShowGravado show) {
-
-		show.setId(id++);
-
-		try {
-			mapaShow.put(show.getId(), show);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public ShowGravado excluir(Integer key) {
-
-		return mapaShow.remove(key);
-	}
-
-	public Collection<ShowGravado> obterLista() {
-		return mapaShow.values();
-	}
+	@Query("from ShowGravado s where s.usuario.id = :userId")
+	public List<ShowGravado> obterLista(Integer userId);
 }

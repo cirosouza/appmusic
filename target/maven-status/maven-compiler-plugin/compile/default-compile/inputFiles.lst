@@ -1,6 +1,7 @@
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\MidiaAnoVazioException.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\domain\ShowGravado.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\ArtistaRepository.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\ProdutoraController.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\service\UsuarioService.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\domain\Clipe.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\ProdutoraSemArtistaException.java
@@ -10,7 +11,6 @@ D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\ma
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\MidiaNomeVazioException.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\AlbumController.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\AlbumInvalidoException.java
-D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\SUsuarioRepository.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\ProdutoraTest.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\ShowGravadoTest.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\ClipeController.java
@@ -19,6 +19,7 @@ D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\ma
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\service\ClipeService.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\ArquivoTest.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\AlbumTest.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\MidiaController.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\ShowGravadoController.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\domain\Album.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\ShowGravadoInvalidoException.java
@@ -27,7 +28,9 @@ D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\ma
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\ArtistaInvalidoException.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\ShowGravadoLoader.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\MidiaDuracaoInvalidaException.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\MidiaRepository.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\ClipeTest.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\ClipeLoader.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\ShowGravadoRepository.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\controller\ArtistaController.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\domain\Produtora.java
@@ -41,9 +44,11 @@ D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\ma
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\domain\Midia.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\exceptions\ProdutoraSemMidiaException.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\AlbumRepository.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\service\ProdutoraService.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\AlbumLoader.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\service\MidiaService.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\ArtistaLoader.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\AcessoRepository.java
-D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\SArtistaRepository.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\auxiliar\Constants.java
+D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\repository\ProdutoraRepository.java
 D:\software_engineering\blocos_e_cursos\java\fundamentos_java\at\appmusic\src\main\java\br\edu\infnet\appmusic\model\tests\MidiaTest.java

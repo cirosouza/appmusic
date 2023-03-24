@@ -1,17 +1,24 @@
 package br.edu.infnet.appmusic.model.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.infnet.appmusic.model.auxiliar.Constants;
 import br.edu.infnet.appmusic.model.exceptions.AlbumInvalidoException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaAnoVazioException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaDuracaoInvalidaException;
 import br.edu.infnet.appmusic.model.exceptions.MidiaNomeVazioException;
 
+@Entity
 public class Album extends Midia {
 
-    private Integer id;
 	private int numeroDeMusicas;
 	private String tipo;
 	private int tempoConteudoBonus;
+
+
+	public Album() {
+		super();
+	}
 
 	public Album(String nome, float duracao, int anoDeGravacao, int numeroDeMusicas, String tipo,
 			int tempoConteudoBonus) throws MidiaNomeVazioException, MidiaDuracaoInvalidaException,
@@ -39,7 +46,7 @@ public class Album extends Midia {
 		return numeroDeMusicas;
 	}
 
-	private void setNumeroDeMusicas(int numeroDeMusicas) {
+	public void setNumeroDeMusicas(int numeroDeMusicas) {
 		this.numeroDeMusicas = numeroDeMusicas;
 	}
 
@@ -47,7 +54,7 @@ public class Album extends Midia {
 		return tipo;
 	}
 
-	private void setTipo(String tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
@@ -57,14 +64,6 @@ public class Album extends Midia {
 
 	public void setTempoConteudoBonus(int tempoConteudoBonus) {
 		this.tempoConteudoBonus = tempoConteudoBonus;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Override
@@ -95,6 +94,5 @@ public class Album extends Midia {
 
 		return sb.toString();
 	}
-
 
 }
