@@ -21,7 +21,7 @@
 		</form>
 
 
-		<c:if test="${not empty clipe }">
+		<c:if test="${not empty mensagem }">
 			<div class="alert alert-success">
 				<strong>Atenção!</strong> ${mensagem}
 			</div>

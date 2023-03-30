@@ -33,8 +33,6 @@ public class ArtistaController {
 
 		model.addAttribute("mensagem", msg);
 
-		msg = null;
-
 		return "artista/lista";
 	}
 
@@ -51,10 +49,15 @@ public class ArtistaController {
 
 	@GetMapping(value="/artista/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-
-		artistaService.excluir(id);
-
-		msg = "A exclusão do artista (" + id + ") foi realizada com sucesso!";
+		
+		Artista artista = artistaService.obterPorId(id);
+		
+		try {
+			artistaService.excluir(id);
+			msg = "A exclusão do clipe" + artista.getNome() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "A exclusão do clipe" + artista.getNome() + " não pôde ser realizada";
+		}
 
 		return "redirect:/artista/lista";
 	}

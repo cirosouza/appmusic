@@ -33,8 +33,6 @@ public class ShowGravadoController {
 
 		model.addAttribute("mensagem", msg);
 
-		msg = null;
-
 		return "show/lista";
 	}
 
@@ -52,10 +50,15 @@ public class ShowGravadoController {
 
 	@GetMapping(value="/show/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-
-		showGravadoService.excluir(id);
-
-		msg = "A exclusão do usuário (" + id + ") foi realizada com sucesso!";
+		
+		ShowGravado show = showGravadoService.obterPorId(id);
+		
+		try {
+			showGravadoService.excluir(id);
+			msg = "A exclusão do show" + show.getNome() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "A exclusão do show" + show.getNome() + " não pôde ser realizada";
+		}
 
 		return "redirect:/show/lista";
 	}

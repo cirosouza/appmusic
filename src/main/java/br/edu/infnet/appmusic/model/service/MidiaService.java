@@ -3,6 +3,8 @@ package br.edu.infnet.appmusic.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmusic.model.domain.Midia;
@@ -24,7 +26,7 @@ public class MidiaService {
 	}
 	
 	public Collection<Midia> obterLista(Usuario usuario) {
-		return (Collection<Midia>) midiaRepository.obterLista(usuario.getId());
+		return (Collection<Midia>) midiaRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "anoDeGravacao"));
 	}
 	
 	public Midia obterPorId(Integer id) {

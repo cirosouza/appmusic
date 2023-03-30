@@ -24,40 +24,50 @@
 			</div>
 		</c:if>
 
-	
 
-	<c:if test="${empty usuarios }">
-		<h5>Não existem usuários cadastrados!</h5>
-	</c:if>
 
-	<c:if test="${not empty usuarios }">
-		<h5>Quantidade de usuarios cadastrados: ${usuarios.size()}</h5>
-	</c:if>
+		<c:if test="${empty usuarios }">
+			<h5>Não existem usuários cadastrados!</h5>
+		</c:if>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nome</th>
-				<th>E-mail</th>
-				<th>Artistas</th>
-				<th>Midias</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="u" items="${usuarios }">
+		<c:if test="${not empty usuarios }">
+			<h5>Quantidade de usuarios cadastrados: ${usuarios.size()}</h5>
+		</c:if>
+
+		<table class="table table-striped">
+			<thead>
 				<tr>
-					<td>${u.id }</td>
-					<td>${u.nome }</td>
-					<td>${u.email }</td>
-					<td>${u.artistas.size() }</td>
-					<td>${u.midias.size() }</td>
-					<th><a href="/usuario/${u.id }/excluir">excluir</a></th>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Admin</th>
+					<th>Endereço</th>
+					<th>Artistas</th>
+					<th>Midias</th>
+					<th>Produtora</th>
+					<c:if test="${usuario.admin }">
+						<th></th>
+					</c:if>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<c:forEach var="u" items="${usuarios }">
+					<tr>
+						<td>${u.id }</td>
+						<td>${u.nome }</td>
+						<td>${u.email }</td>
+						<td>${u.admin }</td>
+						<td>${u.endereco }</td>
+						<td>${u.artistas.size() }</td>
+						<td>${u.midias.size() }</td>
+						<td>${u.produtoras.size() }</td>
+						<c:if test="${usuario.admin }">
+							<th><a href="/usuario/${u.id }/excluir">excluir</a></th>
+						</c:if>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

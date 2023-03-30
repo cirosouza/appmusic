@@ -10,6 +10,8 @@
 <title>Cadastro de Produtoras</title>
 </head>
 <body>
+	<c:set var="botao" value="" />
+
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 	<div class="container">
@@ -28,26 +30,40 @@
 			</div>
 
 			<div class="form-group">
-				<label>Artista:</label> <select name="artista"
-					class="form-control">
-					<c:forEach var="a" items="${artistas}">
-						<option value="${a.id}">${a.nome}</option>
+				<c:if test="${not empty artistas}">
+					<label>Artista:</label>
+					<select name="artista" class="form-control">
+						<c:forEach var="a" items="${artistas}">
+							<option value="${a.id}">${a.nome}</option>
+						</c:forEach>
+					</select>
+				</c:if>
+				<c:if test="${empty artistas}">
+					<c:set var="botao" value="disabled" />
+					<label>Não existem artistas cadastrados.</label>
+				</c:if>
+			</div>
+			
+			<div class="form-group">
+				<c:if test="${not empty midias}">
+					<label>Midias:</label>
+					<c:forEach var="m" items="${midias}">
+						<div class="form-check">
+							<label class="form-check-label"> <input type="checkbox"
+								name="midias" value="${m.id}" class="form-check-input">
+								${m.nome}
+							</label>
+						</div>
 					</c:forEach>
-				</select>
+				</c:if>
+
+				<c:if test="${empty midias}">
+					<c:set var="botao" value="disabled" />
+					<label>Não existem midias cadastradas.</label>
+				</c:if>
 			</div>
 
-			<div class="form-group">
-				<label>Midias:</label>
-				<c:forEach var="m" items="${midias}">
-					<div class="form-check">
-						<label class="form-check-label"> <input type="checkbox"
-							name="midias" value="${m.id}" class="form-check-input">
-							${m.nome}
-						</label>
-					</div>
-				</c:forEach>
-			</div>
-			<button type="submit">Cadastrar</button>
+			<button ${botao} type="submit">Cadastrar</button>
 		</form>
 	</div>
 </body>

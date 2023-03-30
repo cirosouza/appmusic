@@ -3,6 +3,8 @@ package br.edu.infnet.appmusic.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmusic.model.domain.Album;
@@ -28,7 +30,7 @@ public class AlbumService {
 	}
 	
 	public Collection<Album> obterLista(Usuario usuario) {
-		return (Collection<Album>) albumRepository.obterLista(usuario.getId());
+		return (Collection<Album>) albumRepository.obterLista(usuario.getId(), Sort.by(Direction.ASC, "anoDeGravacao"));
 	}
 	
 	public Album obterPorId(Integer id) {

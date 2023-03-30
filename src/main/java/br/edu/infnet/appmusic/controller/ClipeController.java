@@ -33,8 +33,6 @@ public class ClipeController {
 
 		model.addAttribute("mensagem", msg);
 
-		msg = null;
-
 		return "clipe/lista";
 	}
 
@@ -53,9 +51,14 @@ public class ClipeController {
 	@GetMapping(value="/clipe/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		clipeService.excluir(id);
-
-		msg = "A exclusão do usuário (" + id + ") foi realizada com sucesso!";
+		Clipe clipe = clipeService.obterPorId(id);
+		
+		try {
+			clipeService.excluir(id);
+			msg = "A exclusão do clipe" + clipe.getNome() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "A exclusão do clipe" + clipe.getNome() + " não pôde ser realizada";
+		}
 
 		return "redirect:/clipe/lista";
 	}

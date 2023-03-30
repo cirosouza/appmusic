@@ -7,7 +7,7 @@
 			<a class="navbar-brand" href="#">AppMusic</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
+			<li class="active"><a href="/home">Home</a></li>
 			<c:if test="${not empty usuario}">
 				<li><a href="/usuario/lista">Usuario</a></li>
 				<li><a href="/artista/lista">Artista</a></li>

@@ -23,7 +23,7 @@
         </form>
 
 
-		<c:if test="${not empty artista }">
+		<c:if test="${not empty mensagem }">
 			<div class="alert alert-success">
 				<strong>Atenção!</strong> ${mensagem}
 			</div>

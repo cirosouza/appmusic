@@ -16,10 +16,16 @@
 
 	<div class="container">
 
-		<h3>Listagem de Albuns</h3>
+		<h3>Listagem de Midias</h3>
 
 		<c:if test="${empty midias }">
-			<h5>NÃo existem albuns cadastrados!</h5>
+			<h5>Não existem albuns cadastrados!</h5>
+		</c:if>
+
+		<c:if test="${not empty mensagem }">
+			<div class="alert alert-success">
+				<strong>Atenção!</strong> ${mensagem}
+			</div>
 		</c:if>
 
 		<c:if test="${not empty midias }">

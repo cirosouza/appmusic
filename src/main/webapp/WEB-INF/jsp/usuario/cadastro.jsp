@@ -7,13 +7,21 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	
+
 <title>Cadastro de Usuário</title>
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 	<div class="container">
+
+		<form action="/cep" class="form-inline" method="post">
+			<label>CEP:</label> 
+			<input type="text" name="cep" value="22030010"
+				class="form-control">
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
+
 		<form action="usuario/incluir" method="post">
 			<div class="form-group">
 				<label>Nome:</label> <input type="text" name="nome"
@@ -27,6 +35,9 @@
 				<label>E-mail:</label> <input type="email" name="email"
 					value="ciro@gmail.com.br" class="form-control">
 			</div>
+
+			<c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"></c:import>
+
 			<button type="submit">Cadastrar</button>
 		</form>
 	</div>

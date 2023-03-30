@@ -20,6 +20,8 @@ public class UsuarioLoader implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 		
 		Usuario usuario = new Usuario("Administrador", "admin@admin.com", "senha123");	
+		usuario.setAdmin(true);
+		
 		
 		
 		

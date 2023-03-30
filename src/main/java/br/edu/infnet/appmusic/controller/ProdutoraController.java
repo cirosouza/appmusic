@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.appmusic.model.domain.Endereco;
 import br.edu.infnet.appmusic.model.domain.Produtora;
 import br.edu.infnet.appmusic.model.domain.Usuario;
 import br.edu.infnet.appmusic.model.service.ArtistaService;
@@ -45,14 +46,14 @@ public class ProdutoraController {
 
 		model.addAttribute("mensagem", msg);
 
-		msg = null;
-
 		return "produtora/lista";
 	}
 
 	@PostMapping(value = "/produtora/incluir")
-	public String incluir(Produtora produtora, @SessionAttribute("usuario") Usuario usuario) {
+	public String incluir(Produtora produtora, Endereco endereco,@SessionAttribute("usuario") Usuario usuario) {
 
+		usuario.setEndereco(endereco);
+		
 		produtora.setUsuario(usuario);
 
 		produtoraService.incluir(produtora);
@@ -64,10 +65,12 @@ public class ProdutoraController {
 
 	@GetMapping(value = "/produtora/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
+		
+		Produtora produtora = produtoraService.obterPorId(id);
 
 		produtoraService.excluir(id);
 
-		msg = "A exclusão do album (" + id + ") foi realizada com sucesso!";
+		msg = "A exclusão da produtora " + produtora.getNome()+ " foi realizada com sucesso!";
 
 		return "redirect:/produtora/lista";
 	}

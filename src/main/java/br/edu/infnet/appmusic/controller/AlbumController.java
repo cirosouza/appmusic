@@ -53,9 +53,14 @@ public class AlbumController {
 	@GetMapping(value="/album/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 
-		albumService.excluir(id);
-
-		msg = "A exclusão do album (" + id + ") foi realizada com sucesso!";
+		Album album = albumService.obterPorId(id);
+		
+		try {
+			albumService.excluir(id);
+			msg = "A exclusão do album" + album.getNome() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "A exclusão do album" + album.getNome() + " não pôde ser realizada";
+		}
 
 		return "redirect:/album/lista";
 	}

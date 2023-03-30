@@ -16,12 +16,14 @@ br\edu\infnet\appmusic\model\service\AlbumService.class
 br\edu\infnet\appmusic\model\exceptions\ArtistaInvalidoException.class
 br\edu\infnet\appmusic\model\auxiliar\Constants.class
 br\edu\infnet\appmusic\model\service\MidiaService.class
+br\edu\infnet\appmusic\clients\IEnderecoClient.class
 br\edu\infnet\appmusic\model\exceptions\MidiaDuracaoInvalidaException.class
 br\edu\infnet\appmusic\controller\MidiaController.class
 br\edu\infnet\appmusic\model\domain\Artista.class
 br\edu\infnet\appmusic\ClipeLoader.class
 br\edu\infnet\appmusic\model\service\ShowGravadoService.class
 br\edu\infnet\appmusic\ArtistaLoader.class
+br\edu\infnet\appmusic\model\domain\Endereco.class
 br\edu\infnet\appmusic\model\exceptions\ProdutoraSemArtistaException.class
 br\edu\infnet\appmusic\AlbumLoader.class
 br\edu\infnet\appmusic\model\tests\MidiaTest.class
@@ -40,6 +42,8 @@ br\edu\infnet\appmusic\model\exceptions\ShowGravadoInvalidoException.class
 br\edu\infnet\appmusic\model\domain\ShowGravado.class
 br\edu\infnet\appmusic\model\exceptions\ClipeInvalidoException.class
 br\edu\infnet\appmusic\model\service\ProdutoraService.class
+br\edu\infnet\appmusic\model\service\EnderecoService.class
+br\edu\infnet\appmusic\controller\EnderecoController.class
 br\edu\infnet\appmusic\controller\ArtistaController.class
 br\edu\infnet\appmusic\model\repository\MidiaRepository.class
 br\edu\infnet\appmusic\controller\AppController.class

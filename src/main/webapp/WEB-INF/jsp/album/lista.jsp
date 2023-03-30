@@ -23,14 +23,14 @@
 		</form>
 
 
-		<c:if test="${not empty album }">
+		<c:if test="${not empty mensagem }">
 			<div class="alert alert-success">
 				<strong>Atenção!</strong> ${mensagem}
 			</div>
 		</c:if>
 
 		<c:if test="${empty albuns }">
-			<h5>NÃo existem albuns cadastrados!</h5>
+			<h5>Não existem albuns cadastrados!</h5>
 		</c:if>
 
 		<c:if test="${not empty albuns }">
