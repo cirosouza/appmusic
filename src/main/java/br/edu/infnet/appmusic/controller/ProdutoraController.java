@@ -45,6 +45,8 @@ public class ProdutoraController {
 		model.addAttribute("produtoras", produtoraService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
+		
+		msg = null;
 
 		return "produtora/lista";
 	}

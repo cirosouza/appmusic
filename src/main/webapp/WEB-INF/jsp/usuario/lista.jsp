@@ -61,7 +61,7 @@
 						<td>${u.artistas.size() }</td>
 						<td>${u.midias.size() }</td>
 						<td>${u.produtoras.size() }</td>
-						<c:if test="${usuario.admin }">
+						<c:if test="${usuario.admin && !u.admin}">
 							<th><a href="/usuario/${u.id }/excluir">excluir</a></th>
 						</c:if>
 					</tr>

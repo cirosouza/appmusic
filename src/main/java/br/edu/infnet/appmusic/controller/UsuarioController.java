@@ -29,8 +29,8 @@ public class UsuarioController {
 
 	@GetMapping(value = "/usuario/lista")
 	public String telaLista(Model model) {
-
-		model.addAttribute("usuarios", usuarioService.obterLista());
+		
+		model.addAttribute("usuarios", usuarioService.obterListaOrdenada());
 		
 		model.addAttribute("mensagem", msg);
 		

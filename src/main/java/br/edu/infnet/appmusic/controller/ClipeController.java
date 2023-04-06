@@ -32,6 +32,8 @@ public class ClipeController {
 		model.addAttribute("clipes", clipeService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
+		
+		msg = null;
 
 		return "clipe/lista";
 	}

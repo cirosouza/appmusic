@@ -14,4 +14,6 @@ public interface ShowGravadoRepository extends CrudRepository<ShowGravado, Integ
 
 	@Query("from ShowGravado s where s.usuario.id = :userId")
 	public List<ShowGravado> obterLista(Integer userId, Sort sort);
+	
+	
 }

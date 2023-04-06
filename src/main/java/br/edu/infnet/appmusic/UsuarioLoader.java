@@ -22,10 +22,10 @@ public class UsuarioLoader implements ApplicationRunner{
 		Usuario usuario = new Usuario("Administrador", "admin@admin.com", "senha123");	
 		usuario.setAdmin(true);
 		
-		
-		
-		
 		usuarioService.incluir(usuario);
+		
+		Usuario usuario1 = new Usuario("Kevin Shirley", "kevin@gmail.com", "senha123");
+		usuarioService.incluir(usuario1);
 	}
 	
 }

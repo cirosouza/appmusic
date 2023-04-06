@@ -67,5 +67,31 @@ public class ShowGravadoLoader implements ApplicationRunner {
 		} finally {
 			System.out.println("Processamento realizado com sucesso!!!");
 		}
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setId(2);
+		
+		//criando clipes para o usuario 2		
+		ShowGravado show1 = new ShowGravado();
+		show1.setNome("Coheed and Cambria - Guitar Center Sessions");
+		show1.setDuracao(30);
+		show1.setAnoDeGravacao(2022);
+		show1.setLocalDeGravacao("Hollywood");
+		show1.setNumeroDeMusicasPerformadas(7);
+		show1.setProducao("DIRECTV");
+		show1.setUsuario(usuario2);
+		
+		showGravadoService.incluir(show1);
+		
+		ShowGravado show2 = new ShowGravado();
+		show2.setNome("Coheed and Cambria Live at Stone Pony Summer Stage");
+		show2.setDuracao(4);
+		show2.setAnoDeGravacao(2019);
+		show2.setLocalDeGravacao("New Jersey");
+		show2.setNumeroDeMusicasPerformadas(16);
+		show2.setProducao("REVOLVER");
+		show2.setUsuario(usuario2);
+		
+		showGravadoService.incluir(show2);
 	}
 }

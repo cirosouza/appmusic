@@ -60,6 +60,32 @@ public class AlbumLoader implements ApplicationRunner{
 		} finally {
 			System.out.println("Processamento realizado com sucesso!!!");
 		}
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setId(2);
+		
+		//criando albuns para o usuario 2		
+		Album album1 = new Album();
+		album1.setNome("In Keeping Secrets of Silent Earth: 3");
+		album1.setDuracao(69);
+		album1.setAnoDeGravacao(2003);
+		album1.setNumeroDeMusicas(12);
+		album1.setTipo("LP");
+		album1.setTempoConteudoBonus(0);
+		album1.setUsuario(usuario2);
+		
+		albumService.incluir(album1);
+		
+		Album album2 = new Album();
+		album2.setNome("Year of the Black Rainbow");
+		album2.setDuracao(53);
+		album2.setAnoDeGravacao(2010);
+		album2.setNumeroDeMusicas(15);
+		album2.setTipo("LP");
+		album2.setTempoConteudoBonus(13);
+		album2.setUsuario(usuario2);
+		
+		albumService.incluir(album2);
 
 	}
 

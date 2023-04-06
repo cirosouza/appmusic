@@ -32,6 +32,8 @@ public class ArtistaController {
 		model.addAttribute("artistas", artistaService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
+		
+		msg = null;
 
 		return "artista/lista";
 	}

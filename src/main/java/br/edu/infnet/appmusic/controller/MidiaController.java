@@ -25,6 +25,8 @@ public class MidiaController {
 		model.addAttribute("midias", midiaService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
+		
+		msg = null;
 
 		return "midia/lista";
 	}

@@ -32,6 +32,8 @@ public class ShowGravadoController {
 		model.addAttribute("shows", showGravadoService.obterLista(usuario));
 
 		model.addAttribute("mensagem", msg);
+		
+		msg = null;
 
 		return "show/lista";
 	}

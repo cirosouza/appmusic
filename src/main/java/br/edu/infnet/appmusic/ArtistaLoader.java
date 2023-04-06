@@ -65,5 +65,18 @@ public class ArtistaLoader implements ApplicationRunner {
 		} finally {
 			System.out.println("Processamento realizado com sucesso!!!");
 		}
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setId(2);
+		
+		//criando albuns para o usuario 2		
+		Artista artista1 = new Artista();
+		artista1.setNome("Coheed and Cambria");
+		artista1.setAnoDeOrigem(1995);
+		artista1.setTipo("Banda");
+		artista1.setAtivo(true);
+		artista1.setUsuario(usuario2);
+		
+		artistaService.incluir(artista1);
 	}
 }

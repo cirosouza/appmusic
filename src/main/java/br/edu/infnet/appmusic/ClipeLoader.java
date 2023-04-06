@@ -67,5 +67,31 @@ public class ClipeLoader implements ApplicationRunner {
 		} finally {
 			System.out.println("Processamento realizado com sucesso!!!");
 		}
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setId(2);
+		
+		//criando clipes para o usuario 2		
+		Clipe clipe1 = new Clipe();
+		clipe1.setNome("Shoulders");
+		clipe1.setDuracao(3);
+		clipe1.setAnoDeGravacao(2021);
+		clipe1.setDiretor("Claudio Sanchez");
+		clipe1.setLinkVideo("https://www.youtube.com/watch?v=-Tb_v8MFbF8");
+		clipe1.setNumeroDeAtoresFigurantes(15);
+		clipe1.setUsuario(usuario2);
+		
+		clipeService.incluir(clipe1);
+		
+		Clipe clipe2 = new Clipe();
+		clipe2.setNome("Welcome Home");
+		clipe2.setDuracao(4);
+		clipe2.setAnoDeGravacao(2009);
+		clipe2.setDiretor("Claudio Sanchez");
+		clipe2.setLinkVideo("https://www.youtube.com/watch?v=n0H3RlaQVrM");
+		clipe2.setNumeroDeAtoresFigurantes(0);
+		clipe2.setUsuario(usuario2);
+		
+		clipeService.incluir(clipe2);
 	}
 }
